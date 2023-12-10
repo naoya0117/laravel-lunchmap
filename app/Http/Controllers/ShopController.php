@@ -35,9 +35,10 @@ class ShopController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Shop $shop)
+    public function show($id)
     {
-        //
+        $shop = Shop::find($id);
+        return view('show', ['shop' => $shop]);
     }
 
     /**
