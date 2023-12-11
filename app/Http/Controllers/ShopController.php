@@ -63,7 +63,12 @@ class ShopController extends Controller
      */
     public function update(Request $request, $id, Shop $shop)
     {
-        //
+        $shop = Shop::find($id);
+        $shop -> name = request('name');
+        $shop -> address = request('address');
+        $shop -> category_id = request('category_id');
+        $shop -> save();
+        return redirect()-> route('shop.detail', ['id' => $shop->id]);
     }
 
     /**
